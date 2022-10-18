@@ -1,5 +1,6 @@
 import { ICustomWorld } from './custom-world';
 import { config } from './config';
+import { Calculator } from '../pages/Calculator';
 import { Before, After, BeforeAll, AfterAll, Status, setDefaultTimeout } from '@cucumber/cucumber';
 import {
   chromium,
@@ -78,11 +79,6 @@ After(async function (this: ICustomWorld, { result }: ITestCaseHookParameter) {
     if (result.status !== Status.PASSED) {
       const image = await this.page?.screenshot();
       image && (await this.attach(image, 'image/png'));
-      await this.context?.tracing.stop({
-        path: `${tracesDir}/${this.testName}-${
-          this.startTime?.toISOString().split('.')[0]
-        }trace.zip`,
-      });
     }
   }
   await this.page?.close();
