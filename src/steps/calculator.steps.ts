@@ -3,7 +3,6 @@ import { Given, Then, When } from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
 
 Given('ein Taschenrechner', async function (this: ICustomWorld) {
-  // Beispiel für Variante 1, um an 'page' zu gelangen
   const { page } = this;
   await page?.goto('https://testsheepnz.github.io/BasicCalculator.html');
 });
@@ -11,47 +10,35 @@ Given('ein Taschenrechner', async function (this: ICustomWorld) {
 Given(
   'die addierten Zahlen {} und {}',
   async function (this: ICustomWorld, firstNumber: string, secondNumber: string) {
-    const page = this.page!;
-    await page.locator('input#number1Field').type(firstNumber.toString());
-    await page.locator('input#number2Field').type(secondNumber);
-    await page.locator('select#selectOperationDropdown').selectOption('0');
-    await page.locator('input#calculateButton').click();
+    const calculator = this.calculator!;
+    await calculator.setFirstNumber(firstNumber);
+    await calculator.setSecondNumber(secondNumber);
+    await calculator.selectOperation('Addition');
+    await calculator.calculateResult();
   },
 );
 
 When('ich als erste Zahl {} eingebe', async function (this: ICustomWorld, firstNumber: string) {
-  // Präferierte Variante 2, um an 'page' zu gelangen
-  const page = this.page!;
-  await page.locator('input#number1Field').type(firstNumber.toString());
+  await this.calculator?.setFirstNumber(firstNumber);
 });
 
 When('ich als zweite Zahl {} eingebe', async function (this: ICustomWorld, secondNumber: string) {
-  const page = this.page!;
-  await page.locator('input#number2Field').type(secondNumber);
+  await this.calculator?.setSecondNumber(secondNumber);
 });
 
-When('ich Addition als Operation auswähle', async function (this: ICustomWorld) {
-  const page = this.page!;
-  await page.locator('select#selectOperationDropdown').selectOption('0');
-});
-
-When('ich Subtraktion als Operation auswähle', async function (this: ICustomWorld) {
-  const page = this.page!;
-  await page.locator('select#selectOperationDropdown').selectOption('1');
+When('ich {} als Operation auswähle', async function (this: ICustomWorld, operation: string) {
+  await this.calculator?.selectOperation(operation);
 });
 
 When('ich das Ergebnis berechne', async function (this: ICustomWorld) {
-  const page = this.page!;
-  await page.locator('input#calculateButton').click();
+  await this.calculator?.calculateResult();
 });
 
 When('ich das Ergebnis runde', async function (this: ICustomWorld) {
-  const page = this.page!;
-  await page.locator('input#integerSelect').click();
+  await this.calculator?.RoundResult();
 });
 
 Then('erwarte ich {} als Ergebnis', async function (this: ICustomWorld, expectedResult: string) {
-  const page = this.page!;
-  const actualText = await page.locator('#numberAnswerField').inputValue();
+  const actualText = await this.calculator?.getResult();
   expect(actualText).toEqual(expectedResult);
 });
