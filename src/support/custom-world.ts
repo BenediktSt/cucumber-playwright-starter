@@ -1,3 +1,4 @@
+import { Calculator } from '../pages/Calculator';
 import { setWorldConstructor, World, IWorldOptions } from '@cucumber/cucumber';
 import * as messages from '@cucumber/messages';
 import { BrowserContext, Page, PlaywrightTestOptions, APIRequestContext } from '@playwright/test';
@@ -11,6 +12,7 @@ export interface ICustomWorld extends World {
   feature?: messages.Pickle;
   context?: BrowserContext;
   page?: Page;
+  calculator?: Calculator;
 
   testName?: string;
   startTime?: Date;
