@@ -1,111 +1,44 @@
-# cucumber-playwright
+# Gui Test Starter
+Dieses Repository dient als Startpunkt für die Erstellung von Oberflächentests mit Playwright und Cucumber auf Basis von Typescript.
 
-![Test](https://github.com/Tallyb/cucumber-playwright/workflows/Test/badge.svg)
+## Basis und Kudos
+Die Inhalte basieren auf dem Repository [cucumber-playwright](https://github.com/Tallyb/cucumber-playwright)
 
-A starter repo for writing E2E tests based on Cucumber(7) with Playwright using Typescript.
+## Installation
+```
+npm i
+npx playwright install
+```
 
-## The Why
-[Read](https://tally-b.medium.com/e2e-testing-with-cucumber-and-playwright-9584d3ef3360) or [watch](https://www.youtube.com/watch?v=PUVFmhYJNJA&list=PLwwCtx3xQxlVMZzS4oi2TafVRngQ1wF_0&index=2). 
+## Verwendung
 
-## Can we use XXX from playwright in the playwright-cucumber project? 
+### Ausführung von Tests
 
-The playwright-cucumber project started when playwright was a browser automation library. It did not have a test runner, hence cucumber-js was used as the test runner and PW used for the automation.
-Since then PW added their amazing PW test library which is a test runner. But, sadly, it overlaps the functionality provided by cucumber-js. Therefore you need to make the decision now of which runner you want to run: cucumber for BDD style tests or PW test for “normal” tests. 
-Some of the features provided by PW test are also available in cucumber-js, such as parallel run and different configurations (profiles in cucumber-js terms), but may require a different configuration. 
+`npm run test` zur Ausführung aller Tests
 
-## Kudos
+`npm run test <Featurename>` zur Ausführung eines einzelnen Features
 
-This repository is based on the [Cucumber-typescript-starter](https://github.com/hdorgeval/cucumber7-ts-starter/) repo.
+### Browserverwendung
+Per Default wird Chromium verwendet. Über die Umgebungsvariable `BROWSER` kann der Name eines alternativen Browsers gesetzt werden.
 
-## What's inside
+Mögliche Optionen: chromium, firefox, webkit
 
-- Typescript setup for writing steps with eslint/typescript and prettier
-- Launching of Playwright browser before running all tests
-- Launching new context and page for each scenario
-- Running feature with video recording option
-- Report generated with last good image attached
-- Allure reports
-- Utilies function to help you with writing steps
-- VScode configuration to debug a single feature or an only scenario (run when located on the feature file)
-
-## Usage
-
-Create a repo based on this template and start writing your tests.
-
-## To run your tests
-
-`npm run test` or `npx cucumber-js` runs all tests
-`npm run test <feature name>` or `npx cucumber-js <feature name>` run the single feature
-
-## Browser selection
-
-By default we will use chromium. You can define an envrionment variable called BROWSER and
-set the name of the browser. Available options: chromium, firefox, webkit
-
-On Linux and Mac you can write:
-
-`BROWSER=firefox npm run test` or `BROWSER=firefox npx cucumber-js` runs all tests using Firefox
-
-One Windows you need to write
-
+Beispiel für Windows
 ```
 set BROWSER=firefox
 npm run test
 ```
 
-## Working with Page Objects
+### Ignorieren eines Szenarios
 
-I am not fond of the Page Object Model (POM) for testing. It feels like a leftover from Java world, and I do not think it fits the Javascript world. However, you can check [this PR](https://github.com/Tallyb/cucumber-playwright/pull/95/files) to see POM implementation. 
+Durch Verwendung des Tags `@ignore`
 
-## Debugging Features
+### Identifizieren von TypeScript, Linting oder Gherkin Fehlern
 
-### From CLI
+`npm run build`
 
-- `npm run debug` - headful mode with APIs enables both APIs and debug options
-- `npm run api` - headless mode with debug apis
-- `npm run video` - headless mode vith video
+### Auswertung der Step-Usage
 
-## In Visual Studio Code
+`npm run steps-usage`
 
-- Open the feature
-- Select the debug options in the VSCode debugger
-- Set breakpoints in the code
-
-To stop the feature, you can add the `Then debug` step inside your feature. It will stop your debugger.
-
-## To choose a reporter
-
-The last reporter/formatter found on the cucumber-js command-line wins:
-
-```text
---format summary --format @cucumber/pretty-formatter --format cucumber-console-formatter
-```
-
-In [cucumber.mjs](cucumber.mjs) file, modify the options.
-
-
-To use Allure reporting, you can run with env param: `USE_ALLURE=1`, and then use the `npm run allure` to show the report.
-
-## To ignore a scenario
-
-- tag the scenario with `@ignore`
-
-## To check for typescript, linting and gherkin errors
-
-- run the command `npm run build`.
-
-## To view the steps usage
-
-- run the command `npm run steps-usage`.
-
-## To view the html report of the last run
-
-- run the command `npm run report`.
-
-### At least in Lubuntu 20.04 to open the html report
-
-- Modify the `package.json` in `"report": "xdg-open reports/report.html"`
-
-## To view allure report
-- run the command `npm run allure`.
-
+*Weitere Optionen/Befehle lassen sich aus dem [Basis-Repo](https://github.com/Tallyb/cucumber-playwright) entnehmen.
