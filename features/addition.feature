@@ -6,8 +6,16 @@ Funktionalität: Addition des Taschenrechners
 
   Szenario: Addition von zwei Ganzzahlen
     Gegeben sei ein Taschenrechner
-    Wenn ich als erste Zahl drei eingebe
-    Und ich als zweite Zahl vier eingebe
+    Wenn ich als erste Zahl 3 eingebe
+    Und ich als zweite Zahl 4 eingebe
     Und ich Addition als Operation auswähle
     Und ich das Ergebnis berechne
-    Dann erwarte ich sieben als Ergebnis
+    Dann erwarte ich 7 als Ergebnis
+
+  Szenario: Addition von zwei Fließkommazahlen
+    Gegeben sei ein Taschenrechner
+    Wenn ich als erste Zahl 3.3 eingebe
+    Und ich als zweite Zahl 4.4 eingebe
+    Und ich Addition als Operation auswähle
+    Und ich das Ergebnis berechne
+    Dann erwarte ich 7.7 als Ergebnis
