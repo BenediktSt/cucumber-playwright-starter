@@ -1,5 +1,6 @@
 import { ICustomWorld } from './custom-world';
 import { config } from './config';
+import { Calculator } from '../pages/Calculator';
 import { Before, After, BeforeAll, AfterAll, Status, setDefaultTimeout } from '@cucumber/cucumber';
 import {
   chromium,
@@ -58,6 +59,7 @@ Before(async function (this: ICustomWorld, { pickle }: ITestCaseHookParameter) {
 
   await this.context.tracing.start({ screenshots: true, snapshots: true });
   this.page = await this.context.newPage();
+  this.calculator = new Calculator(this.page);
   this.page.on('console', async (msg: ConsoleMessage) => {
     if (msg.type() === 'log') {
       await this.attach(msg.text());
