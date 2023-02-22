@@ -78,6 +78,12 @@ After(async function (this: ICustomWorld, { result }: ITestCaseHookParameter) {
     if (result.status !== Status.PASSED) {
       const image = await this.page?.screenshot();
       image && (await this.attach(image, 'image/png'));
+      const traceFileName = `${this.testName}-${
+        this.startTime?.toISOString().replaceAll(':', '-').split('.')[0]
+      }`;
+      await this.context?.tracing.stop({
+        path: `${tracesDir}/${traceFileName}-trace.zip`,
+      });
     }
   }
   await this.page?.close();
