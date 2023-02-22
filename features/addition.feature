@@ -24,3 +24,15 @@ Funktionalität: Addition des Taschenrechners
     Gegeben seien die addierten Zahlen 3.3 und 4.4
     Wenn ich das Ergebnis runde
     Dann erwarte ich 7 als Ergebnis
+
+  @a11y
+  Szenario: Nach einer Berechnung erwarte ich keine Barrierefreiheitsfehler
+    Gegeben seien die addierten Zahlen 5 und 5
+    Wenn ich das Ergebnis runde
+    Dann erwarte ich keine Barrierefreiheitsfehler auf dieser Seite
+
+  @a11y
+  Szenario: Nach einer Berechnung erwarte ich valides HTML
+    Gegeben seien die addierten Zahlen 5 und 5
+    Wenn ich das Ergebnis runde
+    Dann erwarte ich valides HTML auf dieser Seite
