@@ -42,3 +42,9 @@ Durch Verwendung des Tags `@ignore`
 `npm run steps-usage`
 
 *Weitere Optionen/Befehle lassen sich aus dem [Basis-Repo](https://github.com/Tallyb/cucumber-playwright) entnehmen.
+
+
+### Sichten eines Playwright Trace
+Zu jedem fehlgeschlagenen Szenario wird ein Trace im Ordner `trace` gespeichert.
+
+Dieser Trace kann mittels `npx playwright show-trace <NAME-DES-TRACE>.zip` analysiert werden.
