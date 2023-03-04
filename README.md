@@ -18,7 +18,9 @@ npx playwright install
 
 `npm run test <Featurename>` zur Ausführung eines einzelnen Features
 
-### Browserverwendung
+`npm run test -- --tags <Tag>` zur Ausführung alle Tests, welche dem Tag zugeordnet sind
+
+### Browser-Verwendung
 Per Default wird Chromium verwendet. Über die Umgebungsvariable `BROWSER` kann der Name eines alternativen Browsers gesetzt werden.
 
 Mögliche Optionen: chromium, firefox, webkit
@@ -38,6 +40,9 @@ Durch Verwendung des Tags `@ignore`
 `npm run build`
 
 ### Auswertung der Step-Usage
+
+Hierbei werden alle Tests im Dry-run ausgeführt und es wird der `usage` Bericht von cucumber-js erzeugt.
+Dieser beinhaltet für jeden definierten Step, in welchen Features dieser verwendet wird.
 
 `npm run steps-usage`
 
