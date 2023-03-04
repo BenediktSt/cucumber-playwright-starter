@@ -35,7 +35,6 @@
         "SwitchCase": 1
       }
     ],
-    "no-console": ["error"],
     "no-debugger": ["error"],
     "no-multiple-empty-lines": [
       "error",
