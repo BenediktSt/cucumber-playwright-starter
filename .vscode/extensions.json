@@ -1,0 +1,19 @@
+{
+	// Weitere Informationen https://go.microsoft.com/fwlink/?LinkId=827846
+	"recommendations": [
+		// Nur eine der beiden Cucumber Extensions sollte verwendet werden
+		"alexkrechik.cucumberautocomplete",
+		"CucumberOpen.cucumber-official",
+		// Styling support für den Code
+		"esbenp.prettier-vscode",
+		"dbaeumer.vscode-eslint",
+		// Markdown Support
+		"yzhang.markdown-all-in-one",
+		"DavidAnson.vscode-markdownlint",
+		// Git Support
+		"eamodio.gitlens",
+		"codezombiech.gitignore",
+		"donjayamanne.githistory",
+		"mhutchie.git-graph"
+	],
+}

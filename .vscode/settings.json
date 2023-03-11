@@ -1,0 +1,21 @@
+{
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    // Settings für das Cucumber (Gherkin) Plugin
+    "cucumberautocomplete.steps": [
+      "src/steps/**/*.ts",
+      "node_modules/qa-lib/src/step_definitions/*.js"
+    ],
+    "cucumberautocomplete.syncfeatures": "features/*feature",
+    "cucumberautocomplete.strictGherkinCompletion": true,
+    "cucumberautocomplete.strictGherkinValidation": true,
+    // Settings für das Cucumber Plugin
+    "cucumber.features": ["features/**/*.feature"],
+    "cucumber.glue": [
+      "src/steps/**/*.ts",
+      "node_modules/qa-lib/src/step_definitions/*.js"
+    ]
+  }
