@@ -12,6 +12,7 @@
     "eslint-fix": "eslint ./ --ext .js,.ts,.tsx --fix",
     "eslint-init": "eslint --init",
     "format": "prettier --write \"**/*.{ts,tsx,css,html}\" ",
+    "gherkin": "gherkin-lint",
     "lint": "eslint ./ --ext .js,.ts,.tsx --format visualstudio --no-color --report-unused-disable-directives",
     "only": "npm run cucumber -- --tags @only",
     "report": "open reports/report.html",

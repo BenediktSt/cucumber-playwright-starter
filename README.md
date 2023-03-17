@@ -48,6 +48,10 @@ Dieser beinhaltet für jeden definierten Step, in welchen Features dieser verwen
 
 *Weitere Optionen/Befehle lassen sich aus dem [Basis-Repo](https://github.com/Tallyb/cucumber-playwright) entnehmen.
 
+### Verwendung Gherkin Linter
+Unter `.gherkin-lintrc` werden die entsprechenden Gherkin-Regeln konfiguriert.
+
+`npm run gherkin` führt eine Validierung der Gherkin-Regeln durch.
 
 ### Sichten eines Playwright Trace
 Zu jedem fehlgeschlagenen Szenario wird ein Trace im Ordner `trace` gespeichert.
