@@ -1,0 +1,41 @@
+{
+	// Place your cucumber-playwright-starter workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	"Leerer Given Step": {
+		"scope": "javascript,typescript",
+		"prefix": "given",
+		"body": [
+			"Given('${1:step}', async function (this: ICustomWorld$2) {",
+			"\t$0",
+			"});",
+			""
+		],
+		"description": "Generiert einen leeren Given Step"
+	},
+	"Leerer When Step": {
+		"scope": "javascript,typescript",
+		"prefix": "when",
+		"body": [
+			"When('${1:step}', async function (this: ICustomWorld$2) {",
+			"\t$0",
+			"});",
+			""
+		],
+		"description": "Generiert einen leeren When Step"
+	},
+	"Leerer Then Step": {
+		"scope": "javascript,typescript",
+		"prefix": "then",
+		"body": [
+			"Then('${1:step}', async function (this: ICustomWorld$2) {",
+			"\t$0",
+			"});",
+			""
+		],
+		"description": "Generiert einen leeren Then Step"
+	}
+}
