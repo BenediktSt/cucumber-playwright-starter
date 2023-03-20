@@ -4,6 +4,8 @@
 		// Nur eine der beiden Cucumber Extensions sollte verwendet werden
 		"alexkrechik.cucumberautocomplete",
 		"CucumberOpen.cucumber-official",
+		// Playwright Support
+		"ms-playwright.playwright",
 		// Styling support für den Code
 		"esbenp.prettier-vscode",
 		"dbaeumer.vscode-eslint",
