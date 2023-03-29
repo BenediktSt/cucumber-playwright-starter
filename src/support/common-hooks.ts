@@ -52,7 +52,7 @@ Before(async function (this: ICustomWorld, { pickle }: ITestCaseHookParameter) {
     recordVideo: process.env.PWVIDEO ? { dir: 'screenshots' } : undefined,
     viewport: { width: 1200, height: 800 },
   });
-  this.server = await request.newContext({
+  this.requestContext = await request.newContext({
     // All requests we send go to this API endpoint.
     baseURL: config.BASE_API_URL,
   });

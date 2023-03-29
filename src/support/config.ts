@@ -12,7 +12,7 @@ const browserOptions: LaunchOptions = {
 export const config = {
   browser: process.env.BROWSER || 'chromium',
   browserOptions,
-  BASE_URL: 'https://playwright.dev',
+  BASE_URL: 'https://catfact.ninja',
   IMG_THRESHOLD: { threshold: 0.4 },
   BASE_API_URL: 'https://catfact.ninja/',
 };

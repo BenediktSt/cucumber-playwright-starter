@@ -2,9 +2,11 @@ import { ICustomWorld } from '../support/custom-world';
 import { Given, Then, When } from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
 
+const CALCULATOR_URL = 'https://testsheepnz.github.io/BasicCalculator.html';
+
 Given('ein Taschenrechner', async function (this: ICustomWorld) {
   const { page } = this;
-  await page?.goto('https://testsheepnz.github.io/BasicCalculator.html');
+  await page?.goto(CALCULATOR_URL);
 });
 
 Given(
@@ -17,6 +19,10 @@ Given(
     await calculator.calculateResult();
   },
 );
+
+When('ich den Taschenrechner öffne', async function (this: ICustomWorld) {
+  await this.page?.goto(CALCULATOR_URL);
+});
 
 When('ich als erste Zahl {} eingebe', async function (this: ICustomWorld, firstNumber: string) {
   await this.calculator?.setFirstNumber(firstNumber);
