@@ -1,0 +1,31 @@
+name: Playwright Tests mit Lösung
+on:
+  push:
+    branches: [renovate/all]
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Temp git setup
+        run: git config --global user.email e@mail.de && git config --global user.name user.name
+      - name: Rebase loesung branch
+        run: git rebase origin/loesung
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+      - name: Run Playwright tests
+        run: npm run dry-run
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: test-report
+          path: reports/report.html
+          retention-days: 30
