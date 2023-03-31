@@ -6,6 +6,8 @@
     ":semanticCommits",
     ":semanticCommitTypeAll(chore)"
   ],
+  "timezone": "Europe/Berlin",
+  "schedule": ["on friday"],
   "packageRules": [
     {
       "groupName": "all dependencies",
