@@ -1,7 +1,7 @@
 import { ICustomWorld } from '../support/custom-world';
 import { Then } from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
-import { Page as PlaywrightPage } from 'playwright';
+import { Page as PlaywrightPage } from 'playwright-core';
 import AxeBuilder from '@axe-core/playwright';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
