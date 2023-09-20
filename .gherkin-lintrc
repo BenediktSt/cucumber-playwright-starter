@@ -10,7 +10,7 @@
   "no-multiple-empty-lines": "on",
   "no-empty-file": "on",
   "no-scenario-outlines-without-examples": "on",
-  "name-length": ["on", {"Feature": 50}],
+  "name-length": ["on", {"Feature": 70, "Scenario": 140, "Step": 140}],
   "no-restricted-tags": ["on", {"tags": ["@watch", "@wip"]}],
   "use-and": "on",
   "keywords-in-logical-order": "on",
