@@ -49,7 +49,7 @@ Then(
   async function (this: ICustomWorld) {
     const CSPHeader = this.requestResponse?.headers()['content-security-policy'];
     expect(CSPHeader).toBeTruthy();
-    expect(CSPHeader?.toLowerCase()).toEqual('no-store');
+    expect(CSPHeader?.toLowerCase()).toEqual("default-src 'none'; frame-ancestors 'none';");
   },
 );
 
