@@ -1,21 +1,36 @@
 {
-    "[typescript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
-    // Settings für das Cucumber (Gherkin) Plugin
-    "cucumberautocomplete.steps": [
-      "src/steps/**/*.ts",
-      "node_modules/qa-lib/src/step_definitions/*.js"
-    ],
-    "cucumberautocomplete.syncfeatures": "features/*feature",
-    "cucumberautocomplete.strictGherkinCompletion": true,
-    "cucumberautocomplete.strictGherkinValidation": true,
-    // Settings für das Cucumber Plugin
-    "cucumber.features": ["features/**/*.feature"],
-    "cucumber.glue": [
-      "src/steps/**/*.ts",
-      "node_modules/qa-lib/src/step_definitions/*.js"
-    ]
-  }
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  // Settings für das Cucumber (Gherkin) Plugin
+  "cucumberautocomplete.steps": [
+    "src/steps/**/*.ts",
+    "node_modules/qa-lib/src/step_definitions/*.js"
+  ],
+  "cucumberautocomplete.syncfeatures": "features/*feature",
+  "cucumberautocomplete.strictGherkinCompletion": true,
+  "cucumberautocomplete.strictGherkinValidation": true,
+  "cucumberautocomplete.formatConfOverride": {
+    "Funktionalität": 0,
+    "Szenario": 1,
+    "Grundlage": 1,
+    "Regel": 1,
+    "Szenariogrundriss": 1,
+    "Beispiele": 1,
+    "Gegeben sei": 2,
+    "Wenn": 2,
+    "Dann": 2,
+    "Und": 2,
+    "\\|": 2
+  },
+  // Settings für das Cucumber Plugin
+  "cucumber.features": [
+    "features/**/*.feature"
+  ],
+  "cucumber.glue": [
+    "src/steps/**/*.ts",
+    "node_modules/qa-lib/src/step_definitions/*.js"
+  ]
+}
