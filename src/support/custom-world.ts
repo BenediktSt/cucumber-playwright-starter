@@ -1,4 +1,5 @@
 import { Calculator } from '../pages/Calculator';
+import { HttpApi } from '../pages/HttpApi';
 import { setWorldConstructor, World, IWorldOptions } from '@cucumber/cucumber';
 import * as messages from '@cucumber/messages';
 import {
@@ -20,6 +21,7 @@ export interface ICustomWorld extends World {
   context?: BrowserContext;
   page?: Page;
   calculator?: Calculator;
+  httpApi?: HttpApi;
 
   testName?: string;
   startTime?: Date;
