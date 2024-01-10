@@ -19,6 +19,9 @@ import { ensureDir } from 'fs-extra';
 let browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
 const tracesDir = 'traces';
 
+const escapeDateForFileName = (timestamp: Date) =>
+  timestamp.toISOString().replaceAll(':', '-').split('.')[0];
+
 setDefaultTimeout(process.env.PWDEBUG ? -1 : 60 * 1000);
 
 BeforeAll(async function () {
@@ -48,10 +51,15 @@ Before(async function (this: ICustomWorld, { pickle }: ITestCaseHookParameter) {
   this.startTime = new Date();
   this.testName = pickle.name.replace(/\W/g, '-');
   // customize the [browser context](https://playwright.dev/docs/next/api/class-browser#browsernewcontextoptions)
+
+  const harFileName = `${this.testName}-${escapeDateForFileName(this.startTime!)}.har`;
+  const hasLptTag = pickle.tags.map((tag) => tag.name).includes('@lpt');
+
   this.context = await browser.newContext({
     acceptDownloads: true,
     recordVideo: process.env.PWVIDEO ? { dir: 'screenshots' } : undefined,
     viewport: { width: 1200, height: 800 },
+    recordHar: hasLptTag ? { path: `har/${harFileName}` } : undefined,
   });
   this.requestContext = await request.newContext({
     // All requests we send go to this API endpoint.
@@ -77,12 +85,9 @@ After(async function (this: ICustomWorld, { result }: ITestCaseHookParameter) {
     if (result.status !== Status.PASSED) {
       const image = await this.page?.screenshot();
       image && (await this.attach(image, 'image/png'));
-      const traceFileName = `${this.testName}-${this.startTime
-        ?.toISOString()
-        .replaceAll(':', '-')
-        .split('.')[0]}`;
+      const traceFileName = `${this.testName}-${escapeDateForFileName(this.startTime!)}-trace.zip`;
       await this.context?.tracing.stop({
-        path: `${tracesDir}/${traceFileName}-trace.zip`,
+        path: `${tracesDir}/${traceFileName}`,
       });
     }
   }

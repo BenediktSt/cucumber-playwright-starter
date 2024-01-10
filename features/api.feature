@@ -4,6 +4,7 @@ Funktionalität: Anzeige von Fehlernachrichten
   In meiner Rolle als Anwender*in möchte ich immer hilfreiche Fehlermeldungen erhalten,
   um entsprechend auf die Situation reagieren zu können.
 
+  @lpt
   Szenario: Erfolgreiche Anfrage
     Gegeben sei die Seite für HTTP-Tests
     Und der geöffnete GET-Request
