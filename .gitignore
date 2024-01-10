@@ -67,6 +67,7 @@ reports/*.html
 reports/*.json
 
 traces/
+har/
 
 #build
 build
