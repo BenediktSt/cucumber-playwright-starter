@@ -17,11 +17,6 @@ import { ensureDir } from 'fs-extra';
 let browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
 const tracesDir = 'traces';
 
-declare global {
-  // eslint-disable-next-line no-var
-  var browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
-}
-
 setDefaultTimeout(process.env.PWDEBUG ? -1 : 60 * 1000);
 
 BeforeAll(async function () {
@@ -78,9 +73,10 @@ After(async function (this: ICustomWorld, { result }: ITestCaseHookParameter) {
     if (result.status !== Status.PASSED) {
       const image = await this.page?.screenshot();
       image && (await this.attach(image, 'image/png'));
-      const traceFileName = `${this.testName}-${
-        this.startTime?.toISOString().replaceAll(':', '-').split('.')[0]
-      }`;
+      const traceFileName = `${this.testName}-${this.startTime
+        ?.toISOString()
+        .replaceAll(':', '-')
+        .split('.')[0]}`;
       await this.context?.tracing.stop({
         path: `${tracesDir}/${traceFileName}-trace.zip`,
       });
