@@ -2,10 +2,10 @@ import { Locator, Page } from '@playwright/test';
 
 export class HttpApi {
   readonly page: Page;
-  private readonly getOperation: Locator;
-  private readonly tryOut: Locator;
-  private readonly execute: Locator;
-  private readonly statusCode: Locator;
+  readonly getOperation: Locator;
+  readonly tryOut: Locator;
+  readonly execute: Locator;
+  readonly statusCode: Locator;
 
   constructor(page: Page) {
     this.page = page;
