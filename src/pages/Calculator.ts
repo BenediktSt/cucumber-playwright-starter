@@ -20,10 +20,10 @@ export class Calculator {
   }
 
   public async setFirstNumber(input: string) {
-    await this.firstNumber.type(input);
+    await this.firstNumber.fill(input);
   }
   public async setSecondNumber(input: string) {
-    await this.secondNumber.type(input);
+    await this.secondNumber.fill(input);
   }
   public async selectOperation(opertaion: string) {
     switch (opertaion) {
