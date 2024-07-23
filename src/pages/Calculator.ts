@@ -41,7 +41,7 @@ export class Calculator {
     await this.calculate.click();
   }
   public async RoundResult() {
-    await this.ceil.click();
+    await this.ceil.check();
   }
   public async getResult(): Promise<string> {
     return this.result.inputValue();
