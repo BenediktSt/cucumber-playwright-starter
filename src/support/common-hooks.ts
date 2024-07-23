@@ -20,7 +20,7 @@ let browser: ChromiumBrowser | FirefoxBrowser | WebKitBrowser;
 const tracesDir = 'traces';
 
 const escapeDateForFileName = (timestamp: Date) =>
-  timestamp.toISOString().replaceAll(':', '-').split('.')[0];
+  timestamp?.toISOString().replaceAll(':', '-').split('.')[0];
 
 setDefaultTimeout(process.env.PWDEBUG ? -1 : 60 * 1000);
 
