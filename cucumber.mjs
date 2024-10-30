@@ -11,6 +11,7 @@ const config = {
   require: ['src/**/*.ts'],
   format: [
     // 'message:e2e/reports/cucumber-report.ndjson',
+    'allure-cucumberjs/reporter',
     'json:reports/cucumber-report.json',
     'html:reports/report.html',
     'summary',
