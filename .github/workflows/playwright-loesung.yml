@@ -12,7 +12,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
       - name: Temp git setup
         run: git config --global user.email e@mail.de && git config --global user.name user.name
       - name: Rebase loesung branch

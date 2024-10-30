@@ -26,7 +26,7 @@
     "allure": "allure serve reports/allure-results"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=20"
   },
   "dependencies": {
     "@axe-core/playwright": "4.8.5",
